@@ -10,7 +10,7 @@ export default function Footer() {
           <span className="text-white/60 text-[9px] tracking-[0.3em] uppercase font-mono">A01</span>
           <div>
             <span className="text-white/75 text-[9px] tracking-[0.2em] uppercase font-mono block mb-1">Location</span>
-            <span className="text-white/90 text-xs font-mono">Berlin, DE</span>
+            <span className="text-white/90 text-xs font-mono">Dubai, AE</span>
           </div>
         </div>
 
