@@ -1,21 +1,12 @@
 export default function Contact() {
   return (
-    <section id="contact" className="border border-dashed border-white/20 p-6">
-      <h2>[ CONTACT HEADING ]</h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 border border-dashed border-white/20 p-4">
-        <div className="border border-dashed border-white/20 p-4">
-          <p>[ CONTACT INFO ]</p>
-          <p>[ EMAIL ]</p>
-          <p>[ PHONE ]</p>
-        </div>
-        <div className="border border-dashed border-white/20 p-4">
-          <p>[ FORM PLACEHOLDER ]</p>
-          <p>[ NAME INPUT ]</p>
-          <p>[ EMAIL INPUT ]</p>
-          <p>[ MESSAGE INPUT ]</p>
-          <p>[ SUBMIT BUTTON ]</p>
-        </div>
-      </div>
+    <section id="contact" className="px-2 md:px-4 py-32 text-center">
+      <a
+        href="mailto:hello@firstdraft.studio"
+        className="inline-block text-4xl md:text-5xl font-display border-b border-white/20 pb-2 hover:border-white transition-colors"
+      >
+        hello@firstdraft.studio
+      </a>
     </section>
   );
 }
