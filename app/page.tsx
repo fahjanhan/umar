@@ -1,22 +1,19 @@
-import Starfield from "./components/starfield";
-import Header from "./components/header";
-import Hero from "./components/hero";
-import Marquee from "./components/marquee";
-import Works from "./components/works";
-import About from "./components/about";
-import Footer from "./components/footer";
+import Hero from "./components/Hero";
+import Services from "./components/Services";
+import Portfolio from "./components/Portfolio";
+import Brands from "./components/Brands";
+import Contact from "./components/Contact";
+import Footer from "./components/Footer";
 
 export default function Home() {
   return (
     <>
-      <Starfield />
-      <div className="noise-overlay" />
-      <Header />
       <main>
         <Hero />
-        <Marquee />
-        <Works />
-        <About />
+        <Services />
+        <Portfolio />
+        <Brands />
+        <Contact />
       </main>
       <Footer />
     </>
