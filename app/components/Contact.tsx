@@ -54,6 +54,46 @@ export default function Contact() {
     setTime(null);
   };
 
+  const bookingMailto = () => {
+    if (!selected || !time) return "mailto:hello@firstdraft.studio";
+    const date = new Date(year, month, selected);
+    const longDate = date.toLocaleDateString("en-US", {
+      weekday: "long",
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    });
+    const subject = `Booking Request — ${longDate} · ${time}`;
+    const body = [
+      "Hi First Draft,",
+      "",
+      "I'd like to book a session. Here are the details:",
+      "",
+      `Date:       ${longDate}`,
+      `Time:       ${time}`,
+      "Duration:   [ e.g. 2 hours ]",
+      "Service:    [ e.g. Photography / Film / Post ]",
+      "",
+      "— Your details —",
+      "Name:       [ your name ]",
+      "Company:    [ company / brand ]",
+      "Phone:      [ your phone ]",
+      "",
+      "— Project —",
+      "Brief:      [ tell us about the project ]",
+      "Location:   [ studio / on-site / remote ]",
+      "Budget:     [ optional ]",
+      "",
+      "Looking forward to hearing back.",
+      "",
+      "Thanks,",
+      "[ your name ]",
+    ].join("\n");
+    return `mailto:hello@firstdraft.studio?subject=${encodeURIComponent(
+      subject,
+    )}&body=${encodeURIComponent(body)}`;
+  };
+
   return (
     <section id="contact" className="px-2 md:px-4 py-16 md:py-24">
       <div className="max-w-7xl mx-auto">
@@ -222,7 +262,7 @@ export default function Contact() {
                     : "Select a date to book"}
               </p>
               <a
-                href="mailto:hello@firstdraft.studio"
+                href={bookingMailto()}
                 className={`bg-white px-4 py-2.5 text-[11px] font-semibold tracking-[0.2em] uppercase text-black transition-colors hover:bg-red-800 ${
                   selected && time ? "" : "opacity-30 pointer-events-none"
                 }`}
