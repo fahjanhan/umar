@@ -3,7 +3,18 @@
 @theme inline {
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-  --font-display: var(--font-inter-display);
+  --font-display: var(--font-fraunces);
+}
+
+@layer base {
+  html {
+    text-rendering: optimizeLegibility;
+    font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
+  }
+
+  .font-display {
+    letter-spacing: -0.02em;
+  }
 }
 
 html {
@@ -46,6 +57,26 @@ body::-webkit-scrollbar {
   100% { transform: translateY(100vh); }
 }
 
+@keyframes card-scanline {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(400%); }
+}
+
+.film-scanline {
+  position: absolute;
+  inset-inline: 0;
+  height: 40%;
+  background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.1), transparent);
+  animation: card-scanline 2.4s linear infinite;
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+
+.group:hover .film-scanline {
+  opacity: 1;
+}
+
 @keyframes grain {
   0%, 100% { transform: translate(0, 0); }
   10% { transform: translate(-5%, -10%); }
@@ -78,6 +109,36 @@ body::-webkit-scrollbar {
   animation: grain 8s steps(10) infinite;
 }
 
+.crt-scanlines {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0px,
+    transparent 2px,
+    rgba(255, 255, 255, 0.02) 3px,
+    transparent 4px
+  );
+}
+
+.crt-sweep {
+  position: fixed;
+  left: 0;
+  right: 0;
+  height: 14vh;
+  z-index: 9999;
+  pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(255, 255, 255, 0.018),
+    transparent
+  );
+  animation: scanline 9s linear infinite;
+}
+
 .line-mask {
   display: inline-block;
   overflow: hidden;
@@ -91,4 +152,29 @@ body::-webkit-scrollbar {
 
 .line-mask:hover span {
   transform: translateY(-100%);
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  filter: brightness(0);
+  transition:
+    opacity 1s ease,
+    transform 1s cubic-bezier(0.16, 1, 0.3, 1),
+    filter 1.4s ease;
+}
+
+.reveal.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+  filter: brightness(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    filter: none;
+    transition: none;
+  }
 }

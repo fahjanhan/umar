@@ -51,7 +51,7 @@ export default function About() {
 
   return (
     <section id="about" className="px-2 md:px-4 py-32 md:py-44">
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-7xl mx-auto">
         <p className="text-xs tracking-[0.2em] uppercase opacity-40 mb-12">
           [ About Us ]
         </p>
@@ -84,12 +84,7 @@ export default function About() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {[0, 1, 2, 3, 4, 5].map((i) => (
-            <div
-              key={i}
-              className={`bg-neutral-900 min-h-[280px] ${
-                i % 2 === 0 ? "rounded-[40px]" : "rounded-none"
-              }`}
-            />
+            <div key={i} className="bg-neutral-900 min-h-[280px]" />
           ))}
         </div>
       </div>
