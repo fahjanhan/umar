@@ -13,9 +13,7 @@ export default function Home() {
     <>
       <Header />
       <main>
-        <Reveal>
-          <Hero />
-        </Reveal>
+        <Hero />
         <Reveal>
           <About />
         </Reveal>

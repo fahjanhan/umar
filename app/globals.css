@@ -1,9 +1,9 @@
 @import "tailwindcss";
 
 @theme inline {
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-  --font-display: var(--font-fraunces);
+  --font-sans: var(--font-lato);
+  --font-mono: var(--font-lato);
+  --font-display: var(--font-lato);
 }
 
 @layer base {
@@ -13,7 +13,7 @@
   }
 
   .font-display {
-    letter-spacing: -0.02em;
+    letter-spacing: -0.01em;
   }
 }
 
@@ -50,11 +50,6 @@ body::-webkit-scrollbar {
 @keyframes marquee {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
-}
-
-@keyframes scanline {
-  0% { transform: translateY(-100%); }
-  100% { transform: translateY(100vh); }
 }
 
 @keyframes card-scanline {
@@ -107,36 +102,6 @@ body::-webkit-scrollbar {
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
   background-size: 128px;
   animation: grain 8s steps(10) infinite;
-}
-
-.crt-scanlines {
-  position: fixed;
-  inset: 0;
-  z-index: 9999;
-  pointer-events: none;
-  background: repeating-linear-gradient(
-    to bottom,
-    transparent 0px,
-    transparent 2px,
-    rgba(255, 255, 255, 0.02) 3px,
-    transparent 4px
-  );
-}
-
-.crt-sweep {
-  position: fixed;
-  left: 0;
-  right: 0;
-  height: 14vh;
-  z-index: 9999;
-  pointer-events: none;
-  background: linear-gradient(
-    to bottom,
-    transparent,
-    rgba(255, 255, 255, 0.018),
-    transparent
-  );
-  animation: scanline 9s linear infinite;
 }
 
 .line-mask {
