@@ -116,8 +116,6 @@ export default function Hero() {
             Your browser does not support the video tag.
           </video>
 
-          <div className="absolute inset-0 bg-red-950/25" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/45 to-black/20" />
         </div>
 
         <div className="absolute z-10 inset-2 md:inset-4 flex items-end">
